@@ -1,6 +1,181 @@
 # hospital-ccr-processing
 An open-source solution for processing Cost-to-Charge Ratios (CCRs) in healthcare settings.
 https://claude.site/artifacts/197a0fb9-37fa-4d1d-8952-59bf85ada479
+# Hospital CCR Processing
+
+An open-source solution for processing Cost-to-Charge Ratios (CCRs) in healthcare settings.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.68.0+-green.svg)](https://fastapi.tiangolo.com/)
+
+## Features
+
+- Process hospital Cost-to-Charge Ratios (CCRs)
+- Batch processing support for CSV files
+- RESTful API interface
+- Cost center to revenue center mapping
+- Statistical analysis tools
+- Authentication and authorization
+- Comprehensive data validation
+
+## Quick Start
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/hospital-ccr.git
+cd hospital-ccr
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Set up environment variables:
+```bash
+cp .env.example .env
+# Edit .env with your configurations
+```
+
+4. Run the application:
+```bash
+uvicorn app.main:app --reload
+```
+
+5. Access the API documentation:
+```
+http://localhost:8000/docs
+```
+
+## Project Structure
+
+```
+hospital-ccr/
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── routes/
+│   │   └── models/
+│   ├── core/
+│   │   ├── config.py
+│   │   └── security.py
+│   ├── services/
+│   │   └── ccr_processor.py
+│   └── utils/
+├── tests/
+│   ├── __init__.py
+│   ├── test_api.py
+│   └── test_processor.py
+├── docs/
+│   ├── API.md
+│   ├── CONTRIBUTING.md
+│   └── DEPLOYMENT.md
+├── scripts/
+├── .env.example
+├── .gitignore
+├── LICENSE
+├── README.md
+└── requirements.txt
+```
+
+## Documentation
+
+- [API Documentation](docs/API.md)
+- [Contributing Guidelines](docs/CONTRIBUTING.md)
+- [Deployment Guide](docs/DEPLOYMENT.md)
+
+## API Endpoints
+
+- `POST /api/v1/ccr/calculate` - Calculate single CCR
+- `POST /api/v1/ccr/batch` - Process batch CCR calculations
+- `GET /api/v1/ccr/{hospital_id}` - Get hospital CCRs
+- `GET /api/v1/ccr/stats/{hospital_id}` - Get CCR statistics
+- `GET /api/v1/ccr/crosswalk/{revenue_center}` - Get cost center mapping
+
+## Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](docs/CONTRIBUTING.md) for details.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Development Setup
+
+### Prerequisites
+
+- Python 3.8+
+- FastAPI
+- PostgreSQL (optional)
+- Docker (optional)
+
+### Local Development
+
+1. Create a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# or
+.\venv\Scripts\activate  # Windows
+```
+
+2. Install development dependencies:
+```bash
+pip install -r requirements-dev.txt
+```
+
+3. Run tests:
+```bash
+pytest
+```
+
+### Using Docker
+
+1. Build the image:
+```bash
+docker build -t hospital-ccr .
+```
+
+2. Run the container:
+```bash
+docker run -p 8000:8000 hospital-ccr
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Security
+
+Please report any security issues to security@hospitalccr.org.
+
+## Acknowledgments
+
+- ResDAC for CCR processing methodology
+- Healthcare Cost Report Information System (HCRIS)
+- Open source community contributors
+
+## Support
+
+- Documentation: [https://docs.hospitalccr.org](https://docs.hospitalccr.org)
+- Issue Tracker: [https://github.com/yourusername/hospital-ccr/issues](https://github.com/yourusername/hospital-ccr/issues)
+- Community Forum: [https://community.hospitalccr.org](https://community.hospitalccr.org)
+
+## Roadmap
+
+- Enhanced batch processing capabilities
+- Additional statistical analysis tools
+- Machine learning-based CCR predictions
+- Integration with major healthcare systems
+- Enhanced data visualization tools
+- Real-time processing capabilities
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
